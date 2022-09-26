@@ -1,35 +1,18 @@
 import {
   Chart as ChartJS,
   ArcElement,
-  LineElement,
   BarElement,
-  PointElement,
-  BarController,
-  BubbleController,
-  DoughnutController,
-  LineController,
-  PieController,
-  PolarAreaController,
-  RadarController,
-  ScatterController,
   CategoryScale,
   LinearScale,
-  LogarithmicScale,
-  RadialLinearScale,
-  TimeScale,
-  TimeSeriesScale,
-  Decimation,
-  Filler,
   Legend,
   Title,
   Tooltip,
-  SubTitle,
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import React, { useState, useEffect } from "react";
-import cn from 'classnames'
+import cn from "classnames";
 
-import styles from "./doughnut.module.scss"
+import styles from "./doughnut.module.scss";
 
 ChartJS.register(
   CategoryScale,
@@ -38,13 +21,14 @@ ChartJS.register(
   ArcElement,
   Title,
   Tooltip,
-  Legend,
+  Legend
 );
 
-export default function DoughnutChart({ size='medium', datas=[17098250, 9879750, 9600013, 9831510,8515770,7741220]}) {
-  const mainCn = cn(
-    styles[size]
-  )
+export default function DoughnutChart({
+  size = "medium",
+  datas = [17098250, 9879750, 9600013, 9831510, 8515770, 7741220],
+}) {
+  const mainCn = cn(styles[size]);
   const [config, setConfig] = useState({});
 
   const [data, setData] = useState({
@@ -53,7 +37,7 @@ export default function DoughnutChart({ size='medium', datas=[17098250, 9879750,
 
   useEffect(() => {
     setData({
-      labels: ["Russia", "Canada", "China", "USA","Brasil","Australia"],
+      labels: ["Russia", "Canada", "China", "USA", "Brasil", "Australia"],
       datasets: [
         {
           label: "My First Dataset",
